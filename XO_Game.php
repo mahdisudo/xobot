@@ -1,7 +1,7 @@
-﻿<?php
+<?php
 
-define('BOT_TOKEN', '229137572:AAGQND99pXmKj1fBy3m6R4O_G-l-P6UNf-Y');
-define('API_URL', 'https://api.telegram.org/bot'.BOT_TOKEN.'/');
+define('BOT_TOKEN', '229137572:AAGMEY80iWlN-BPmnj0FxM_SwQg5iMQU14M');
+define('API_URL', 'https://api.pwrtelegram.xyz/bot'.BOT_TOKEN.'/');
 
 function apiRequestWebhook($method, $parameters) {
   if (!is_string($method)) {
@@ -135,7 +135,7 @@ function Win($table){
 }
 
 function getChat($chat_id){
-	$json=file_get_contents('https://api.telegram.org/bot'.BOT_TOKEN."/getChat?chat_id=".$chat_id);
+	$json=file_get_contents('https://api.pwrtelegram.xyz/bot'.BOT_TOKEN."/getChat?chat_id=".$chat_id);
 	$data=json_decode($json,true);
 	return $data["result"]["first_name"];
 }
@@ -151,8 +151,8 @@ function processMessage($message) {
     if (strpos($text, "/start") === 0) {
       apiRequestJson("sendMessage", array('chat_id' => $chat_id, "text" => "اگه تو هم تلگرامت آپدیت باشه این دکمه های شیشه ای رو دیدی صددرصد\n ما با همین دکمه ها براتون چند تا بازی آماده کردیم مثل ایکس او و سنگ کاغذ قیچی \n اگه مایلی با دوستات بازی کنی روی لینک زیر کلیک کن. بعد دوستتو انتخاب کن و منتظر باش که بااکس اینلاین ظاهر شه", 'reply_markup' => array(
             "inline_keyboard"=>array(
-			    array(array("text"=>"توسعه دهنده","url"=>"https://telegram.me/sudo2")),
-				array(array("text"=>"مشارکت کننده","url"=>"https://telegram.me/sudo2")),
+			    array(array("text"=>"توسعه دهنده","url"=>"https://telegram.me/Ir_Poker")),
+				array(array("text"=>"مشارکت کننده","url"=>"https://telegram.me/Ir_Poker")),
 			    array(array("text"=>"بازی XO","switch_inline_query"=>md5(date("YMDms"))),array("text"=>"سنگ کاغذ قیچی (به زودی)","callback_data"=>"m"))
 			)
 		)));
@@ -305,8 +305,8 @@ function callbackMessage($callback){
 					    exit;
 				    }
 					else if($Num>=9) {
-                        /*$Tab[3][0]["text"]="بازی به اتمام رسید";
-		                $Tab[3][0]["callback_data"]="end";*/
+                        $Tab[3][0]["text"]="بازی به اتمام رسید";
+		                $Tab[3][0]["callback_data"]="end";
 						
 						$n=0;
                         for($ii=0;$ii<3;$ii++){
